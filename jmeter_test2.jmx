@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.0">
+  <hashTree>
+    <!-- Test Plan -->
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" ...>
+      <!-- ... Your existing config ... -->
+    </TestPlan>
+    <hashTree>
+      <!-- Thread Group -->
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" ...>
+        <!-- ... Your thread group config ... -->
+      </ThreadGroup>
+      <hashTree>
+        <!-- CSV Data Config -->
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" .../>
+        <hashTree></hashTree> <!-- Required empty tree -->
+
+        <!-- HTTP Request -->
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" ...>
+          <!-- ... Your HTTP request config ... -->
+        </HTTPSamplerProxy>
+        <hashTree>
+          <!-- Assertion -->
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" .../>
+          <hashTree></hashTree>
+        </hashTree>
+
+        <!-- Add other elements here with proper hashTree wrappers -->
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
