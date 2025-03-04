@@ -1,0 +1,30 @@
+stages:
+  - performance-test
+
+performance-test:
+  stage: performance-test
+  image: justb4/jmeter:5.6.2
+  variables:
+    PROTOCOL: "https"
+    DOMAIN: "api.yourdomain.com"
+    PORT: "443"
+    TEST_DATA_PATH: "test_data.json"
+    THREAD_COUNT: "100"
+    RAMP_TIME: "300"
+    LOOP_COUNT: "10"
+  script:
+    - jmeter -n -t jmeter_test.jmx
+      -JPROTOCOL=${PROTOCOL}
+      -JDOMAIN=${DOMAIN}
+      -JPORT=${PORT}
+      -JTEST_DATA_PATH=${TEST_DATA_PATH}
+      -JTHREAD_COUNT=${THREAD_COUNT}
+      -JRAMP_TIME=${RAMP_TIME}
+      -JLOOP_COUNT=${LOOP_COUNT}
+      -l results.jtl
+      -e -o report
+  artifacts:
+    paths:
+      - results.jtl
+      - report/
+    expire_in: 1 week

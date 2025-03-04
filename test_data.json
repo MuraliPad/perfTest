@@ -1,0 +1,4 @@
+transactionType,amount,currency
+WITHDRAWAL,100,USD
+DEPOSIT,200,EUR
+BALANCE_CHECK,,USD
